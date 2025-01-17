@@ -1,11 +1,22 @@
-import { useState } from "react";
-//
+import { useEffect,useState } from "react";
+
 export default function App(){
   const [goal, setgoal] = useState(7)
   const [color,setColor]=useState("bg-blue-300")
   const [textColor,setTextColor] =useState("text-black")
+  
+
+  useEffect(() => {
+    console.log('The count is :',goal);
+
+    return () =>{
+      console.log('i am being cleaned up');
+    };
+  } , [goal]);
+
+
   return(
-    <>
+    < >
     <div className="flex font-semibold justify-start pl-20 mt-20 h-50 mb-5">
     <div className="flex-col">
     <h2 className="pb-10 text-3xl"> Goalcount: {goal} </h2>
